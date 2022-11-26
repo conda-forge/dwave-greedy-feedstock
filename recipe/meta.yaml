@@ -1,5 +1,5 @@
 {% set name = "dwave-greedy" %}
-{% set version = "0.2.5" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dwave-greedy-{{ version }}.tar.gz
-  sha256: b04c67fbd151d53f61748f285cea602001a5b55d06402b248406200ca0597e40
+  sha256: 806c02d6c3f260ef5bf063d4932f43dfb52a0ea00f9db0b0d34d9b15691a011a
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 0
 
 requirements:
   build:
