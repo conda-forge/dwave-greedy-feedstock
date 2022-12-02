@@ -1,5 +1,5 @@
 {% set name = "dwave-greedy" %}
-{% set version = "0.2.5" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,32 +7,22 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dwave-greedy-{{ version }}.tar.gz
-  sha256: b04c67fbd151d53f61748f285cea602001a5b55d06402b248406200ca0597e40
+  sha256: 806c02d6c3f260ef5bf063d4932f43dfb52a0ea00f9db0b0d34d9b15691a011a
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 0
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
-    - numpy 1.20                             # [build_platform != target_platform and py<310]
-    - numpy                                  # [build_platform != target_platform and py>=310]
     - {{ compiler('cxx') }}
   host:
-    - cython >=0.29.24,<3.0
-    - numpy 1.20  # [py<310]
-    - numpy       # [py>=310]
-    - setuptools >=46.4.0
-    - wheel >=0.30.0
     - pip
     - python
   run:
-    - dimod >=0.9.2,<0.13.0
-    - importlib-metadata >=1.0
-    - {{ pin_compatible('numpy') }}
+    - dwave-samplers >=1.0.0
     - python
 
 test:
