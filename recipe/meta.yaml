@@ -22,6 +22,7 @@ requirements:
   host:
     - pip
     - python
+    - setuptools
   run:
     - dwave-samplers >=1.0.0
     - python
